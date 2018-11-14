@@ -1,0 +1,267 @@
+{
+	"info": {
+		"_postman_id": "bd435b6f-625d-48c0-ab5b-b6b698e6fb9d",
+		"name": "Collection API CC Recurring",
+		"description": "Sandbox AXA dengan data Account ::\nVT-client-PU3osa1QzeQKjgFY\nVT-server-xEfTXHDXEim2rbdfxqsTL4Sr\n\nCard Holder (3DS) :: 5211 1111 1111 1117 (MasterCard)\nCard Holder (Not 3DS) :: 5410 1111 1111 1116 (MasterCard)\nExpiry Month 01\nExpiry Year\t2020\nCVV\t123\nNote :: For other Principal Car Holder in URL https://docs.midtrans.com/en/reference/test.html\n\nReference Documentation ::\nhttps://api-docs.midtrans.com/#register-card\nhttps://api-docs.midtrans.com/#card-features-one-click\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Step-1 :: GET Register Card",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "#Input your ServerKey-Authorization#",
+						"description": "Basic (space) (encodeBase 64 + :)"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.sandbox.midtrans.com/v2/card/register?card_number=5410111111111116&card_exp_month=12&card_exp_year=2018&client_key=/* Input your ClientKey */",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"midtrans",
+						"com"
+					],
+					"path": [
+						"v2",
+						"card",
+						"register"
+					],
+					"query": [
+						{
+							"key": "card_number",
+							"value": "5410111111111116"
+						},
+						{
+							"key": "card_exp_month",
+							"value": "12"
+						},
+						{
+							"key": "card_exp_year",
+							"value": "2018"
+						},
+						{
+							"key": "client_key",
+							"value": "/* Input your ClientKey */"
+						}
+					]
+				},
+				"description": "Documentation @ https://api-docs.midtrans.com/#register-card"
+			},
+			"response": []
+		},
+		{
+			"name": "Step-2 :: GET Card Token",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "#Input your ServerKey-Authorization#",
+						"description": "Basic (space) (encodeBase 64 + :)"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.sandbox.midtrans.com/v2/token?client_key=/* Input your ClientKey */&gross_amount=10000&card_number=5410 1111 1111 1116&card_exp_month=12&card_exp_year=20&card_cvv=123&secure=true&bank=bni",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"midtrans",
+						"com"
+					],
+					"path": [
+						"v2",
+						"token"
+					],
+					"query": [
+						{
+							"key": "client_key",
+							"value": "/* Input your ClientKey */",
+							"description": "Your merchant client key, from Midtrans dashboard"
+						},
+						{
+							"key": "gross_amount",
+							"value": "10000",
+							"description": "transaction amount"
+						},
+						{
+							"key": "card_number",
+							"value": "5410 1111 1111 1116",
+							"description": "credit card number"
+						},
+						{
+							"key": "card_exp_month",
+							"value": "12",
+							"description": "credit card expiry month"
+						},
+						{
+							"key": "card_exp_year",
+							"value": "20",
+							"description": "credit card expiry year"
+						},
+						{
+							"key": "card_cvv",
+							"value": "123",
+							"description": "credit card cvv"
+						},
+						{
+							"key": "secure",
+							"value": "true",
+							"description": "3 Domain Secure Transaction\n"
+						},
+						{
+							"key": "bank",
+							"value": "bni",
+							"description": "The acquiring back where the card payment is processed"
+						},
+						{
+							"key": "installment_term",
+							"value": "12",
+							"disabled": true
+						},
+						{
+							"key": "point",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				},
+				"description": "Send Credit/Debit card information to Midtrans server and returns token ID, you need token ID to charge card transaction.\nhttps://api-docs.midtrans.com/#get-token"
+			},
+			"response": []
+		},
+		{
+			"name": "Step-3 :: POST Charge CreditCard Recurring",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "#Input your ServerKey-Authorization#",
+						"description": "Basic (space) (encodeBase 64 + :)"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"payment_type\": \"credit_card\",\n    \"credit_card\": {\n        \"token_id\": \"/* For First Trxn Input from Value token_id on Response Step-2, but For Second Trxn and forward use the token_id value from Step-1.*/\",\n        \"save_token_id\": true\n    },\n    \"transaction_details\": {\n        \"order_id\": \"Midtrans-{{$timestamp}}\",\n        \"gross_amount\": 10000\n    }\n}"
+				},
+				"url": {
+					"raw": "https://api.sandbox.midtrans.com/v2/charge",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"midtrans",
+						"com"
+					],
+					"path": [
+						"v2",
+						"charge"
+					]
+				},
+				"description": "Documentation @ https://api-docs.midtrans.com/#card-features-pre-authorization"
+			},
+			"response": []
+		},
+		{
+			"name": "Optional Step :: Get Order/Transaction Status",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "#Input your ServerKey-Authorization#",
+						"description": "Basic (space) (encodeBase 64 + :)"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.sandbox.midtrans.com/v2/#orderId OR transactionId (Select One)#/status",
+					"protocol": "https",
+					"host": [
+						"api",
+						"sandbox",
+						"midtrans",
+						"com"
+					],
+					"path": [
+						"v2",
+						""
+					],
+					"hash": "orderId OR transactionId (Select One)#/status"
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5fef64df-7fa1-4b7a-9c5f-1c9172d5f7d4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2f36c718-6413-413a-934a-c28542c73dfa",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
