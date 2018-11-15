@@ -2,7 +2,7 @@
 	"info": {
 		"_postman_id": "bd435b6f-625d-48c0-ab5b-b6b698e6fb9d",
 		"name": "Collection API CC Recurring",
-		"description": "Sandbox AXA dengan data Account ::\nVT-client-PU3osa1QzeQKjgFY\nVT-server-xEfTXHDXEim2rbdfxqsTL4Sr\n\nCard Holder (3DS) :: 5211 1111 1111 1117 (MasterCard)\nCard Holder (Not 3DS) :: 5410 1111 1111 1116 (MasterCard)\nExpiry Month 01\nExpiry Year\t2020\nCVV\t123\nNote :: For other Principal Car Holder in URL https://docs.midtrans.com/en/reference/test.html\n\nReference Documentation ::\nhttps://api-docs.midtrans.com/#register-card\nhttps://api-docs.midtrans.com/#card-features-one-click\n",
+		"description": "Sandbox Merchant dengan data Account ::\n/* Input your ClientKey */\n/* Input your ServerKey */\n\nCard Holder (3DS) :: 5211 1111 1111 1117 (MasterCard)\nCard Holder (Not 3DS) :: 5410 1111 1111 1116 (MasterCard)\nExpiry Month 01\nExpiry Year\t2020\nCVV\t123\nNote :: For other Principal Car Holder in URL https://docs.midtrans.com/en/reference/test.html\n\nReference Documentation ::\nhttps://api-docs.midtrans.com/#register-card\nhttps://api-docs.midtrans.com/#card-features-one-click\n",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
