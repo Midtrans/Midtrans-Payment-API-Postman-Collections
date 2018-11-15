@@ -88,6 +88,10 @@ If you get error
 
 ### Changelog
 
+15/11/2018
+- Add sample collection for flow recurring Credit Cards.
+- Add a list of information and contacts to help understand the use of the Midtrans product API.
+
 25/01/2018
 - Add gopay & danamon online banking example.
 - Change mandiri clickpay request, according to docs.
