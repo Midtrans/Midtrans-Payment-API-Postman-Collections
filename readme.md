@@ -17,7 +17,7 @@ API covered:
 1. Download and open [Postman](https://www.getpostman.com)
 2.  Import:
     - Use this link: https://www.getpostman.com/collections/af068be08b5d1a422796 , or
-    - Clone or [download](/archive/master.zip) this repository, then import postman collections from `MidtransPaymentAPI.postman_collection` file.
+    - Clone or [download](/archive/master.zip) this repository, then import postman collections from `Midtrans Payment API.postman_collection.json` file.
 3. [Register to Midtrans](https://dashboard.midtrans.com/register)
 4. [Login](http://dashboard.midtrans.com) to Midtrans, switch to **Sandbox**, go to menu `Settings > Access Keys`. Copy your **Server Key**
 5. In Postman, open **Midtrans Payment API** then choose one request you want to try, click on `Authorization` tab (beside Headers tab)
@@ -53,7 +53,9 @@ For real example on how you can use Snap token in your website front-end, you ca
 
 ### Core API - Credit Card Get Token & 3DS Authenticate Example
 
-To get credit card token for Core API Credit Card charge process, here's [sample implementation that you can check](https://github.com/Midtrans/midtrans-python-client/blob/master/examples/flask_app/templates/simple_core_api_checkout.html). (mandiri clickpay also need get token process).
+To get credit card token for Core API Credit Card charge process & how to open 3ds redirect_url, here's [sample implementation that you can check](/coreAPI-CreditCardFrontend/index.html). (mandiri clickpay also need get token process).
+
+> Don't forget to change client_key to your client key inside that file.
 
 ## Production Mode
 
