@@ -17,6 +17,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.js"></script>
 
   <p>This page is to further demonstrate how to implement frontend processes for Credit Card transactions</p>
+  <form id="key-form">
+      <p>
+          <label>Client Key:</label>
+          <!-- // TODO: Change with your client key. -->
+          <input type="text" id="client-key" value="YOUR_CLIENT_KEY_HERE">
+      </p>
+      <button type="submit">Set</button>
+  </form>
 
   <form id="token-form">
     <fieldset>
@@ -86,7 +94,7 @@
       // Set as sandbox URL, remove this line for Production mode.
       Veritrans.url = "https://api.sandbox.midtrans.com/v2/token";
       // TODO: Change with your client key.
-      Veritrans.client_key = "YOUR_CLIENT_KEY_HERE";
+      Veritrans.client_key = document.querySelector("#client-key").value;
       Veritrans.token(
         function(){
           return {
@@ -173,6 +181,11 @@
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
         .replace(/\\/g, "");
+
+    document.querySelector("#key-form").onsubmit = function(e){
+        Veritrans.client_key = document.querySelector("#client-key").value;
+        return e.preventDefault() && 0;
+    }
 
   </script>
 </body>
