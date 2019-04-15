@@ -2164,7 +2164,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://api.sandbox.midtrans.com/v2/card/token?client_key=<YOUR CLIENT KEY HERE>&card_number=5211111111111117&card_cvv=123&card_exp_month=12&card_exp_year=2021",
+							"raw": "https://api.sandbox.midtrans.com/v2/token?client_key=<YOUR CLIENT KEY HERE>&card_number=5211111111111117&card_cvv=123&card_exp_month=12&card_exp_year=2021",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -2174,7 +2174,6 @@
 							],
 							"path": [
 								"v2",
-								"card",
 								"token"
 							],
 							"query": [
@@ -2259,7 +2258,7 @@
 						],
 						"body": {},
 						"url": {
-							"raw": "https://api.sandbox.midtrans.com/v2/card/token?client_key=<YOUR CLIENT KEY HERE>&token_id=<saved_token_id here>&cvv=123",
+							"raw": "https://api.sandbox.midtrans.com/v2/token?client_key=<YOUR CLIENT KEY HERE>&token_id=<saved_token_id here>&card_cvv=123",
 							"protocol": "https",
 							"host": [
 								"api",
@@ -2269,7 +2268,6 @@
 							],
 							"path": [
 								"v2",
-								"card",
 								"token"
 							],
 							"query": [
@@ -2283,7 +2281,7 @@
 									"description": "Retrieved from Step 2 3DS authenticate frontend callback (and backend Notification)"
 								},
 								{
-									"key": "cvv",
+									"key": "card_cvv",
 									"value": "123"
 								}
 							]
