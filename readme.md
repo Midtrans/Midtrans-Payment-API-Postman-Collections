@@ -1,6 +1,7 @@
 
 Midtrans Payment API Postman Collection
 =====================================
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/af068be08b5d1a422796)
 
 Midtrans&nbsp; :heart: Postman!
 
@@ -16,7 +17,9 @@ API covered:
 
 1. Download and open [Postman](https://www.getpostman.com)
 2.  Import:
-    - Use this link: https://www.getpostman.com/collections/af068be08b5d1a422796 , or
+    - Use this button to download: 
+        
+        [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/af068be08b5d1a422796) , or
     - Clone or [download](../../archive/master.zip) this repository, then import postman collections from `Midtrans Payment API.postman_collection.json` file.
 3. [Register to Midtrans](https://dashboard.midtrans.com/register)
 4. [Login](http://dashboard.midtrans.com) to Midtrans, switch to **Sandbox**, go to menu `Settings > Access Keys`. Copy your **Server Key**
