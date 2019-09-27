@@ -17,7 +17,7 @@ API covered:
 1. Download and open [Postman](https://www.getpostman.com)
 2.  Import:
     - Use this link: https://www.getpostman.com/collections/af068be08b5d1a422796 , or
-    - Clone or [download](/archive/master.zip) this repository, then import postman collections from `Midtrans Payment API.postman_collection.json` file.
+    - Clone or [download](archive/master.zip) this repository, then import postman collections from `Midtrans Payment API.postman_collection.json` file.
 3. [Register to Midtrans](https://dashboard.midtrans.com/register)
 4. [Login](http://dashboard.midtrans.com) to Midtrans, switch to **Sandbox**, go to menu `Settings > Access Keys`. Copy your **Server Key**
 5. In Postman, open **Midtrans Payment API** then choose one request you want to try, click on `Authorization` tab (beside Headers tab)
